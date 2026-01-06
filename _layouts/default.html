@@ -394,27 +394,80 @@ td, th {
                 flex: 1;
             }
         }
+        .usa-logo__text {
+          font-size: 1.1rem;
+          line-height: 1.2;
+          color: #002a5c;
+        }
+
+        .usa-logo__link {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+        }
+
+        .usa-nav__link[aria-current="page"] {
+          font-weight: 600;
+          border-bottom: 3px solid #005ea2;
+          color: #005ea2;
+        }
     </style>
 </head>
 <body>
 
 
-    <header>
-        <div class="logo">
-         <a href="/">
-            <img src="https://gabrieljones.it/assets/logo.png" alt="Stemma del GMJ">
-         </a>
-        <a href="/">
-           <h3>Ufficio di Gabriel</h3>
+<header class="usa-header usa-header--basic" role="banner">
+  <div class="usa-nav-container">
+    
+    <div class="usa-navbar">
+      <!-- LOGO + TITOLO -->
+      <div class="usa-logo" id="basic-logo">
+        <a href="/" class="usa-logo__link" title="Homepage">
+          <img
+            src="https://gabrieljones.it/assets/logo.png"
+            alt="Logo Ufficio Digitale di Gabriel Jones"
+            style="height:48px;border-radius:6px;margin-right:0.75rem;"
+          />
+          <span class="usa-logo__text">
+            Ufficio Digitale di<br />
+            <strong>Gabriel Jones</strong>
+          </span>
         </a>
-        </div>
+      </div>
 
-        <div class="social-icons">
-            <a href="https://agfo.fvg.it">Arena Giovani</a>
-            <a href="https://blog.gabrieljones.it/">Blog</a>
-            <a href="https://ufficiogabrieljones.it/dashboard/">Amministrazione 2</a>
-        </div>
-    </header>
+      <!-- PULSANTE MOBILE -->
+      <button class="usa-menu-btn">Menu</button>
+    </div>
+
+    <!-- NAV -->
+    <nav class="usa-nav" aria-label="Primary navigation">
+      <button class="usa-nav__close">
+        <img src="https://cdn.jsdelivr.net/npm/uswds@2.14.0/dist/img/usa-icons/close.svg" alt="Chiudi menu" />
+      </button>
+
+      <ul class="usa-nav__primary usa-accordion">
+        <li class="usa-nav__primary-item">
+          <a href="/" class="usa-nav__link" aria-current="page">Home</a>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a href="/aree/1/" class="usa-nav__link">
+            Affari Istituzionali e BiblioGab
+          </a>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a href="/aree/2/" class="usa-nav__link">Area Infanzia</a>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a href="/aree/3/" class="usa-nav__link">
+            Login 👤
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
 
     <section class="hero">
         <div class="title">
