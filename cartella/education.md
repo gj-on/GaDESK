@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: cartella
 title: Atti generali
 permalink: /edu/
 
