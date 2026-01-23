@@ -1,7 +1,7 @@
 ---
 layout: desk
 title: Prima e seconda infanzia elementare
-permalink: /desk/cartelle/edu/
+permalink: /desk/
 
 
 files:
