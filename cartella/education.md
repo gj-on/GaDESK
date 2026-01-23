@@ -1,19 +1,19 @@
 ---
 layout: cartella
-title: Atti generali
-permalink: /edu/
+title: Prima e seconda infanzia elementare
+permalink: /desk/cartelle/edu/
 
 
 files:
-  - title: "File 1"
-    url: "/docs/file1.pdf"
+  - title: "Curricolo D'Istituto"
+    url: "https://icfontanafredda.edu.it/risorse-per-la-didattica-2/risorse-per-la-didattica/"
     icon: "file"
-    date: "12/01/2024"
+    date: "12/01/2023"
     ext: "PDF"
 
-  - title: "File 2"
-    url: "/docs/file2.docx"
-    icon: "clip"
+  - title: "Sito ICFONTANAFREDDA EDU IT"
+    url: "https://icfontanafredda.edu.it/"
+    icon: "piattaforme"
     date: "05/02/2024"
     ext: "DOCX"
 ---
