@@ -13,7 +13,7 @@ files:
 
   - title: "Sito ICFONTANAFREDDA EDU IT"
     url: "https://icfontanafredda.edu.it/"
-    icon: "piattaforme"
+    icon: "file"
     date: "05/02/2024"
     ext: "DOCX"
 ---
