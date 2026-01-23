@@ -1,6 +1,6 @@
 ---
 layout: desk
-title: Prima e seconda infanzia elementare
+title: DeskCentrale
 permalink: /desk/
 
 
