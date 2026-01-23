@@ -19,31 +19,36 @@
   </div>
 
 
+
+  {% if page.files %}
   <!-- Griglia card -->
-<div class="row g-4">
+  <div class="row g-4">
 
-  {% for file in page.files %}
-  <div class="col-12 col-md-6 col-lg-4">
-    <a href="{{ file.url }}"
-       class="text-decoration-none text-reset">
+    {% for file in page.files %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="{{ file.url }}"
+         class="text-decoration-none text-reset">
 
-      <div class="card card-bg h-100 card-link">
-        <div class="card-body">
+        <div class="card card-bg h-100 card-link">
+          <div class="card-body">
 
-          <svg class="icon icon-lg icon-primary mb-3">
-            <use href="/assets/bootstrap-italia/dist/svg/sprite.svg#it-{{ file.icon }}"></use>
-          </svg>
+            <svg class="icon icon-lg icon-primary mb-3">
+              <use href="/assets/bootstrap-italia/dist/svg/sprite.svg#{{ file.icon }}"></use>
+            </svg>
 
-          <h2 class="h6 mb-1">{{ file.title }}</h2>
+            <h2 class="h6 mb-1">{{ file.title }}</h2>
 
-          <p class="small text-muted mb-0">
-            {{ file.date }}, {{ file.ext }}
-          </p>
+            <p class="small text-muted mb-0">
+              {{ file.date }}{% if file.ext %}, {{ file.ext }}{% endif %}
+            </p>
 
+          </div>
         </div>
-      </div>
-    </a>
-  </div>
-  {% endfor %}
+      </a>
+    </div>
+    {% endfor %}
 
-</div>
+  </div>
+  {% else %}
+    <p>Nessun file disponibile.</p>
+  {% endif %}
