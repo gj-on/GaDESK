@@ -1,0 +1,49 @@
+
+
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb-container mb-4" aria-label="Percorso di navigazione">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/desk/top/">Directory Centrale</a>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- Titolo sezione -->
+  <div class="mb-4">
+    <h1 class="mb-2">{{ page.title }}</h1>
+    <p class="lead text-muted">
+      Cartella con atti interni, atti pubblici, documenti e link
+    </p>
+  </div>
+
+
+  <!-- Griglia card -->
+<div class="row g-4">
+
+  {% for file in page.files %}
+  <div class="col-12 col-md-6 col-lg-4">
+    <a href="{{ file.url }}"
+       class="text-decoration-none text-reset">
+
+      <div class="card card-bg h-100 card-link">
+        <div class="card-body">
+
+          <svg class="icon icon-lg icon-primary mb-3">
+            <use href="/assets/bootstrap-italia/dist/svg/sprite.svg#it-{{ file.icon }}"></use>
+          </svg>
+
+          <h2 class="h6 mb-1">{{ file.title }}</h2>
+
+          <p class="small text-muted mb-0">
+            {{ file.date }}, {{ file.ext }}
+          </p>
+
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+
+</div>
