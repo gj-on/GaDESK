@@ -2,7 +2,7 @@
 title: Comunicazione 2
 from: Dipartimento servizi digitali - Matteo Romato
 layout: email
-date: 2019-01-18
+date: 2024-07-06
 ---
 
 Buongiorno Gabriel,
