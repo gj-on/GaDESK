@@ -1,26 +1,59 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+
   <style>
-    /* Ottimizzazione stampa / PDF */
+    /* Intestazione documento */
+    .document-header img {
+      max-height: 80px;
+    }
+
+    /* Stampa / PDF */
     @media print {
       .no-print { display: none; }
       body {
         font-size: 12pt;
       }
+      .document-header {
+        margin-bottom: 2rem;
+      }
     }
   </style>
+</head>
 
-<header class="border-bottom py-3 mb-4">
+<body>
+
+  <!-- Intestazione istituzionale -->
+  <header class="document-header border-bottom py-3 mb-4">
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <strong>{{ page.ente }}</strong><br>
-          {{ page.ufficio }}
+      <div class="row align-items-center">
+
+        <!-- Stemma -->
+        <div class="col-2">
+          {% if page.stemma %}
+            <img src="https://www.regione.fvg.it/rafvg/export/sites/default/RAFVG/_config_/resp/img/logo_sm-n.png" alt="Stemma {{ page.ente }}">
+          {% endif %}
         </div>
-        <div class="col text-end">
-          <small>{{ page.date | date: "%d/%m/%Y" }}</small>
+
+        <!-- Ente -->
+        <div class="col-8 text-center">
+          <div class="fw-bold text-uppercase">{{ page.ente }}</div>
+          <div class="small">{{ page.ufficio }}</div>
         </div>
+
+        <!-- Data -->
+        <div class="col-2 text-end small">
+          {{ page.date | date: "%d/%m/%Y" }}
+        </div>
+
       </div>
     </div>
   </header>
@@ -40,7 +73,10 @@ layout: default
 
   <!-- Footer minimale -->
   <footer class="border-top py-3 mt-5">
-    <div class="container text-center text-muted">
-      Documento generato automaticamente
+    <div class="container text-center text-muted small">
+      Documento informatico ai sensi del CAD
     </div>
   </footer>
+
+</body>
+</html>
