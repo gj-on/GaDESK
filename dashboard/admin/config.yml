@@ -44,3 +44,28 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "riservato" }
       - { label: "Permalink", name: "permalink", widget: "string" }
       - { label: "Corpo", name: "body", widget: "markdown" }
+
+  - name: "desk"
+    label: "Desk"
+    folder: "_cartella"     # cartella che conterrà i vari .md
+    create: true               # consente di creare nuovi file
+    slug: "{{slug}}"           # nome file automatico
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}}"
+
+    fields:
+      - { label: "Layout", name: "layout", widget: "string", default: "desk" }
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Permalink", name: "permalink", widget: "string" }
+
+      - label: "Files"
+        name: "files"
+        widget: "list"
+        summary: "{{fields.title}}"
+        fields:
+          - { label: "Titolo", name: "title", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Icona", name: "icon", widget: "string" }
+          - { label: "Data", name: "date", widget: "string" }
+          - { label: "Estensione / Tipologia", name: "ext", widget: "string" }

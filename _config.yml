@@ -65,8 +65,8 @@ canonical_url: "https://blog.gabrieljones.it/gabrieljones/"
 rss_feed_url: "https://blog.gabrieljones.it/gabrieljones/feed"
 
 collections:
-  articoli:
+  cartella:
     output: true
-    permalink: /articoli/:title/
+    permalink: /desk/cartella/:title/
   docs:
     output: true
