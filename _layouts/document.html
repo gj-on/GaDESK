@@ -73,34 +73,59 @@
       text-align: justify;
     }
 
-    /* Stampa / PDF */
-    @media print {
-      body {
-        font-size: 12pt;
-      }
+/* Stampa / PDF */
+@media print {
+  body {
+    font-size: 12pt;
+    margin: 0;
+    color: #000;
+  }
 
-      .page {
-        grid-template-columns: 180px 1fr;
-      }
+  .page {
+    display: block; /* grid non sempre funziona bene su PDF */
+    margin: 0;
+  }
 
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        border-right: 1px solid #000;
-      }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    padding: 2cm 1cm;
+    border-right: 1px solid #000;
+    background: none;
+  }
 
-      .content {
-        margin-left: 200px;
-        padding: 2.5cm 2.5cm 2.5cm 3cm;
-      }
+  .content {
+    margin-left: 210px; /* lascia spazio per la sidebar */
+    padding: 2cm;       /* margini uniformi su tutti i lati */
+  }
 
-      a {
-        color: #000;
-        text-decoration: none;
-      }
-    }
+  h1.document-title {
+    page-break-after: 1rem;
+  }
+
+  article h2 {
+    page-break-before: always;
+  }
+
+  hr {
+    page-break-after: avoid;
+    border: 0;
+    border-top: 1px solid #000;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  /* Forza il testo giustificato in stampa */
+  article p, article li {
+    text-align: justify;
+  }
+}
   </style>
 </head>
 
