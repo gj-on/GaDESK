@@ -2,50 +2,15 @@ backend:
   name: git-gateway
   branch: "48892"
 
-media_folder: "assets"
-public_folder: "/assets"
-
-collections:
-  - name: "it"
-    label: "Pagine"
-    folder: "it"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
-      - { name: "title", label: "Titolo", widget: "string" }
-      - { name: "date", label: "Data", widget: "datetime", default: "", hidden: true }
-      - { name: "permalink", label: "Link personalizzato", widget: "string", required: true }
-      - { name: "body", label: "page", widget: "markdown" }
-  - name: "posts"
-    label: "Post"
-    label_singular: "Post"
-    folder: "_posts"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    preview_path: "posts/{{slug}}"
-    sortable_fields: ['date', 'title']
-    fields:
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
-      - { label: "Categoria", name: "categories", widget: "list", default: ["notizie"] }
-      - { label: "Tag", name: "tags", widget: "list" }
-      - { label: "Contenuto", name: "body", widget: "markdown" }
-      - { label: "Autore", name: "autore", widget: "string", default: "Redazione: Gabriel Matteo Jones" }
-
-backend:
-  name: git-gateway
-  branch: main
-
-media_folder: "assets/uploads"
+media_folder: "assets/uploads"   # cartella dove vengono caricati i file
 public_folder: "/assets/uploads"
 
 locale: it
 
 collections:
-  - name: "desk"
-    label: "desk"
-    folder: "desk"
+  - name: "cartelle"
+    label: "Cartelle didattiche"
+    folder: "desk/cartelle"
     create: true
     slug: "{{slug}}"
     extension: "md"
@@ -54,9 +19,7 @@ collections:
       preview: false
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "cartella" }
-
       - { label: "Titolo", name: "title", widget: "string" }
-
       - { label: "Permalink", name: "permalink", widget: "string" }
 
       - label: "File"
