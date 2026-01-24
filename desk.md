@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: cartella
 title: DeskCentrale
 permalink: /desk/
 
