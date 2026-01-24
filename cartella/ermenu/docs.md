@@ -4,6 +4,7 @@ title: "REGOLAMENTO RECANTE I CRITERI E LE MODALITÀ FUNZIONALI PER LA SOLLECITA
 ente: "Comune di Esempio"
 approvazione: "Approvato con deliberazione consiliare n. 12 del 21.02.2005"
 stemma: "/assets/img/stemma-comune.svg"
+permalink: "/desk/docs/licenzagenerale/"
 ---
 
 ## Art. 1  
