@@ -67,6 +67,5 @@ rss_feed_url: "https://blog.gabrieljones.it/gabrieljones/feed"
 collections:
   cartella:
     output: true
-    permalink: /desk/cartella/:title/
   docs:
     output: true
