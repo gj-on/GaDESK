@@ -151,4 +151,31 @@ https://cdn.jsdelivr.net/npm/bootstrap-italia@2.17.2/dist/js/bootstrap-italia.bu
         <br>
     {{ content }}
     </main>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const link = document.getElementById("netlify-login-link");
+    const text = document.getElementById("netlify-login-text");
+
+    if (!link || !text || !window.netlifyIdentity) return;
+
+    netlifyIdentity.on("init", user => {
+      if (user) {
+        // Utente loggato
+        const name =
+          user.user_metadata?.full_name ||
+          user.user_metadata?.name ||
+          user.email;
+
+        link.href = "/desk/admin/";
+        text.textContent = `Hey ${name}`;
+      } else {
+        // Utente NON loggato
+        link.href = "/login/";
+        text.textContent = "Accedi all'area personale";
+      }
+    });
+
+    netlifyIdentity.init();
+  });
+</script>
 </html>
