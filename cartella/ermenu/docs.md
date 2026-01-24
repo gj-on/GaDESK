@@ -7,9 +7,6 @@ stemma: "/assets/img/stemma-comune.svg"
 permalink: "/desk/docs/licenzagenerale/"
 ---
 
-## Art. 1  
-**Oggetto della disciplina ed elementi di riferimento**
-
 1. Il presente regolamento disciplina i criteri e le modalità funzionali per la sollecitazione di soggetti privati alla produzione di erogazioni a titolo gratuito e di liberalità a favore dell’amministrazione.
 
 2. Le erogazioni a titolo gratuito e le liberalità a favore dell’amministrazione sono utilizzate per la realizzazione di interventi, iniziative e progetti, nonché di investimenti.
@@ -36,8 +33,5 @@ permalink: "/desk/docs/licenzagenerale/"
    c) investimenti per strutture, mezzi ed attrezzature.
 
 2. Le attività e gli investimenti realizzati con risorse acquisite da erogazioni liberali sono rendicontati progressivamente ai soggetti che le hanno sostenute, nonché al Consiglio Comunale, mediante rapporto finale.
-
-## Art. 5  
-**Forme di pubblicità**
 
 1. L’amministrazione utilizza i mezzi a sua disposizione e realizza eventuali iniziative particolari per dare massima pubblicità al ruolo dei soggetti che hanno provveduto a sostenere progetti e attività mediante erogazioni a titolo gratuito e liberalità.
