@@ -6,9 +6,9 @@ media_folder: "assets"
 public_folder: "/assets"
 
 collections:
-  - name: "pagine_it"
+  - name: "it"
     label: "Pagine"
-    folder: "content/pagine"
+    folder: "it"
     create: true
     slug: "{{slug}}"
     fields:
@@ -32,39 +32,48 @@ collections:
       - { label: "Tag", name: "tags", widget: "list" }
       - { label: "Contenuto", name: "body", widget: "markdown" }
       - { label: "Autore", name: "autore", widget: "string", default: "Redazione: Gabriel Matteo Jones" }
-  - name: "private_pages"
-    label: "Pagine ad autorizzazione"
-    folder: "content/private/"
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: it
+
+collections:
+  - name: "desk"
+    label: "desk"
+    folder: "desk"
     create: true
     slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
     editor:
       preview: false
     fields:
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "riservato" }
-      - { label: "Permalink", name: "permalink", widget: "string" }
-      - { label: "Corpo", name: "body", widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "cartella" }
 
-  - name: "desk"
-    label: "Desk"
-    folder: "_cartella"     # cartella che conterrà i vari .md
-    create: true               # consente di creare nuovi file
-    slug: "{{slug}}"           # nome file automatico
-    extension: "md"
-    format: "frontmatter"
-    summary: "{{title}}"
-
-    fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "desk" }
       - { label: "Titolo", name: "title", widget: "string" }
+
       - { label: "Permalink", name: "permalink", widget: "string" }
 
-      - label: "Files"
+      - label: "File"
         name: "files"
         widget: "list"
-        summary: "{{fields.title}}"
+        summary: "{{fields.title}} ({{fields.ext}})"
         fields:
-          - { label: "Titolo", name: "title", widget: "string" }
-          - { label: "Icona", name: "icon",default: "file", widget: "hidden" }
-          - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
-          - { label: "Estensione / Tipologia", name: "ext", widget: "string" }
+          - { label: "Titolo file", name: "title", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Icona", name: "icon", widget: "string", default: "file" }
+          - { label: "Data", name: "date", widget: "string" }
+          - label: "Estensione"
+            name: "ext"
+            widget: "select"
+            options:
+              - PDF
+              - DOCX
+              - PPTX
+              - XLSX
+              - LINK
