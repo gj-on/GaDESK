@@ -10,7 +10,7 @@ locale: it
 collections:
   - name: "cartelle"
     label: "Cartelle didattiche"
-    folder: "desk/cartelle"
+    folder: "cartella"
     create: true
     slug: "{{slug}}"
     extension: "md"
