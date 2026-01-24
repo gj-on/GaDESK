@@ -69,4 +69,7 @@ collections:
     output: true
   emails:
     output: true
-    permalink: /email/:name/
+    permalink: /desk/email/:name/
+  emails:
+    output: true
+    permalink: /desk/archivio/:name/
