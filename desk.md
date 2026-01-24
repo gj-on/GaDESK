@@ -31,9 +31,9 @@ files:
     
   - title: "Cartella Adobe Illustrator"
     url: "/desk/cartelle/adobeillustrator/"
-    icon: "piattaforma"
+    icon: "file"
     date: "01/01/2019"
-    ext: "piattaforma"
+    ext: "file"
     
   - title: "Regione FVG - Contratti"
     url: "/desk/cartelle/RegioneFVG/"
