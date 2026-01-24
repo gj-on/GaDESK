@@ -43,7 +43,7 @@ files:
     
   - title: "OPAC DESK"
     url: "/desk/OPAC/"
-    icon: "book"
+    icon: "file"
     date: "01/01/2019"
     ext: "Tipologia2"
     
