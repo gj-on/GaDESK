@@ -1,5 +1,5 @@
 ---
-layout: desk
+layout: home
 title: DeskCentrale
 permalink: /desk/
 
