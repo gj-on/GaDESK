@@ -1,0 +1,46 @@
+---
+layout: default
+---
+  <style>
+    /* Ottimizzazione stampa / PDF */
+    @media print {
+      .no-print { display: none; }
+      body {
+        font-size: 12pt;
+      }
+    }
+  </style>
+
+<header class="border-bottom py-3 mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <strong>{{ page.ente }}</strong><br>
+          {{ page.ufficio }}
+        </div>
+        <div class="col text-end">
+          <small>{{ page.date | date: "%d/%m/%Y" }}</small>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Corpo documento -->
+  <main class="container mb-5">
+    <h1 class="mb-2">{{ page.title }}</h1>
+
+    {% if page.subtitle %}
+      <h2 class="h5 text-muted mb-4">{{ page.subtitle }}</h2>
+    {% endif %}
+
+    <article class="mt-4">
+      {{ content }}
+    </article>
+  </main>
+
+  <!-- Footer minimale -->
+  <footer class="border-top py-3 mt-5">
+    <div class="container text-center text-muted">
+      Documento generato automaticamente
+    </div>
+  </footer>
