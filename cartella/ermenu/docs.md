@@ -5,6 +5,7 @@ subtitle: "Affidamento servizio XYZ"
 date: 2026-01-24
 ente: "Comune di Esempio"
 ufficio: "Ufficio Tecnico"
+permalink: "/desk/docs/licenzagenerale/"
 ---
 
 ## Premesso che
