@@ -3,27 +3,72 @@
 <head>
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
+  <!-- Bootstrap Italia -->
+  <link rel="stylesheet" href="/assets/bootstrap-italia/css/bootstrap-italia.min.css">
 
   <style>
-    /* Intestazione documento */
-    .document-header img {
-      max-height: 80px;
+    body {
+      font-family: "Titillium Web", Arial, sans-serif;
+      background-color: #ffffff;
+      color: #000;
+      line-height: 1.6;
     }
 
-    /* Stampa / PDF */
+    .document-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .document-header img {
+      max-height: 90px;
+      margin-bottom: 1rem;
+    }
+
+    .document-title {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.35rem;
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+
+    .approvazione {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-bottom: 3rem;
+    }
+
+    article h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-top: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    article p,
+    article li {
+      text-align: justify;
+    }
+
+    article ul,
+    article ol {
+      margin-left: 1.2rem;
+    }
+
+    hr {
+      margin: 2rem 0;
+    }
+
     @media print {
-      .no-print { display: none; }
       body {
         font-size: 12pt;
       }
-      .document-header {
-        margin-bottom: 2rem;
+      a {
+        color: #000;
+        text-decoration: none;
       }
     }
   </style>
@@ -31,52 +76,34 @@
 
 <body>
 
+<main class="document-wrapper">
+
   <!-- Intestazione istituzionale -->
-  <header class="document-header border-bottom py-3 mb-4">
-    <div class="container">
-      <div class="row align-items-center">
-
-        <!-- Stemma -->
-        <div class="col-2">
-          {% if page.stemma %}
-            <img src="https://www.regione.fvg.it/rafvg/export/sites/default/RAFVG/_config_/resp/img/logo_sm-n.png" alt="Stemma {{ page.ente }}">
-          {% endif %}
-        </div>
-
-        <!-- Ente -->
-        <div class="col-8 text-center">
-          <div class="fw-bold text-uppercase">{{ page.ente }}</div>
-          <div class="small">{{ page.ufficio }}</div>
-        </div>
-
-        <!-- Data -->
-        <div class="col-2 text-end small">
-          {{ page.date | date: "%d/%m/%Y" }}
-        </div>
-
-      </div>
-    </div>
+  <header class="document-header text-center mt-4 mb-4">
+    {% if page.stemma %}
+      <img src="https://www.regione.fvg.it/rafvg/export/sites/default/RAFVG/_config_/resp/img/logo_sm-n.png" alt="Stemma {{ page.ente }}">
+    {% endif %}
+    <div class="fw-bold">{{ page.ente }}</div>
   </header>
 
-  <!-- Corpo documento -->
-  <main class="container mb-5">
-    <h1 class="mb-2">{{ page.title }}</h1>
+  <!-- Titolo -->
+  <h1 class="document-title">
+    {{ page.title }}
+  </h1>
 
-    {% if page.subtitle %}
-      <h2 class="h5 text-muted mb-4">{{ page.subtitle }}</h2>
-    {% endif %}
-
-    <article class="mt-4">
-      {{ content }}
-    </article>
-  </main>
-
-  <!-- Footer minimale -->
-  <footer class="border-top py-3 mt-5">
-    <div class="container text-center text-muted small">
-      Documento informatico ai sensi del CAD
+  {% if page.approvazione %}
+    <div class="approvazione">
+      {{ page.approvazione }}
     </div>
-  </footer>
+  {% endif %}
 
+  <!-- Corpo documento -->
+  <article>
+    {{ content }}
+  </article>
+
+</main>
+
+<script src="/assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js"></script>
 </body>
 </html>
