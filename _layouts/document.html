@@ -72,18 +72,20 @@
     article li {
       text-align: justify;
     }
-
 /* Stampa / PDF */
 @media print {
   body {
     font-size: 12pt;
-    margin: 0;
+    margin-top: 2cm;  /* margine superiore */
+    margin-bottom: 2cm; /* margine inferiore */
+    margin-left: 0;
+    margin-right: 0;
     color: #000;
   }
 
   .page {
     display: block; /* grid non sempre funziona bene su PDF */
-    margin: 10;
+    margin: 2cm; /* margini superiori, inferiori e laterali */
   }
 
   .sidebar {
@@ -128,6 +130,7 @@
     text-align: justify;
   }
 }
+
   </style>
 </head>
 
