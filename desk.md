@@ -3,7 +3,6 @@ layout: desk
 title: DeskCentrale
 permalink: /desk/
 
-
 files:
   - title: "Documenti dell'interno"
     url: "/desk/docs/"
