@@ -67,3 +67,6 @@ rss_feed_url: "https://blog.gabrieljones.it/gabrieljones/feed"
 collections:
   docs:
     output: true
+  emails:
+    output: true
+    permalink: /email/:name/

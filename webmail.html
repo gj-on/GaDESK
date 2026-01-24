@@ -62,15 +62,16 @@ body { font-family:"Inter", sans-serif; background:#f5f5f7; margin:0; }
 
     <!-- LISTA EMAIL -->
     <section class="col-md-10 email-list p-0" id="emailList">
-      {% for email in site.emails %}
-      <div class="email-item" data-title="{{ email.title }}" data-from="{{ email.from }}" data-body="{{ email.content | markdownify }}">
-        <div class="d-flex justify-content-between">
-          <h6>{{ email.from }}</h6>
-          <small>{{ email.date | date: "%d/%m/%Y" }}</small>
-        </div>
-        <p class="text-truncate">{{ email.title }}</p>
-      </div>
-      {% endfor %}
+{% for email in site.emails %}
+  <div class="email-item" data-title="{{ email.title }}" data-from="{{ email.from }}" data-body="{{ email.content | markdownify }}">
+    <div class="d-flex justify-content-between">
+      <h6>{{ email.from }}</h6>
+      <small>{{ email.date | date: "%d/%m/%Y" }}</small>
+    </div>
+    <p class="text-truncate">{{ email.title }}</p>
+  </div>
+{% endfor %}
+
     </section>
   </div>
 </div>
