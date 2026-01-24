@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webmail Outlook Style</title>
+
+<!-- Bootstrap Italia CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.8.0/dist/css/bootstrap-italia.min.css"
+/>
+
+<style>
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: #f5f5f7;
+    margin: 0;
+  }
+
+  /* HEADER */
+  .header {
+    background-color: #b30059; /* Magenta */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1.5rem;
+    border-bottom: 2px solid #800040;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .header .brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+
+  .header .search-container {
+    flex-grow: 1;
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .header input {
+    width: 100%;
+    border: none;
+    padding: 0.35rem 0.5rem;
+    background-color: #cc0066;
+    color: white;
+  }
+
+  .header input::placeholder {
+    color: #ffcce0;
+  }
+
+  .header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    background-color: #800040; /* Magenta scuro */
+    color: white;
+    min-height: 92vh;
+    padding-top: 1rem;
+    border-right: 2px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .sidebar .list-group-item {
+    background-color: #800040;
+    color: white;
+    border: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 4px solid transparent;
+    padding: 0.85rem 1rem;
+    transition: all 0.2s;
+  }
+
+  .sidebar .list-group-item:hover {
+    background-color: #99004d;
+    border-left: 4px solid #ff3399;
+  }
+
+  .sidebar .list-group-item.active {
+    background-color: #99004d;
+    font-weight: 700;
+    border-left: 4px solid #ff3399;
+  }
+
+  /* LISTA EMAIL */
+  .email-list {
+    background-color: #fff;
+    max-height: 92vh;
+    overflow-y: auto;
+    border-right: 2px solid #ccc;
+  }
+
+  .email-item {
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.2s;
+  }
+
+  .email-item:hover {
+    background-color: #ffe6f2;
+  }
+
+  .email-item.unread h6 {
+    font-weight: 700;
+  }
+
+  .email-item.unread p {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .email-item.selected {
+    background-color: #ffb3d9;
+  }
+
+  .email-item .d-flex {
+    justify-content: space-between;
+  }
+
+  /* PREVIEW EMAIL */
+  .email-preview {
+    background-color: #fff;
+    min-height: 92vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid #ccc;
+  }
+
+  .email-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .email-preview-header h5 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .email-preview-header small {
+    color: #555;
+  }
+
+  .email-preview-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-top: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .email-preview-footer {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .btn-primary-custom {
+    background-color: #b30059;
+    border-color: #b30059;
+  }
+
+  .btn-primary-custom:hover {
+    background-color: #800040;
+    border-color: #800040;
+  }
+
+  .btn-outline-danger {
+    border-width: 2px;
+  }
+
+  /* Scrollbars */
+  .email-list::-webkit-scrollbar,
+  .email-preview-body::-webkit-scrollbar {
+    width: 6px;
+  }
+  .email-list::-webkit-scrollbar-thumb,
+  .email-preview-body::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="brand">Webmail</div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Cerca email...">
+  </div>
+  <div>
+    <button title="Nuovo messaggio">✉️</button>
+    <button title="Notifiche">🔔</button>
+    <button title="Profilo">👤</button>
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="container-fluid g-0">
+  <div class="row">
+
+    <!-- SIDEBAR -->
+    <aside class="col-md-2 sidebar">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item active">📥 Posta in arrivo</li>
+        <li class="list-group-item">📤 Inviata</li>
+        <li class="list-group-item">⭐ Speciali</li>
+        <li class="list-group-item">📎 Bozze</li>
+        <li class="list-group-item">🗑️ Cestino</li>
+      </ul>
+    </aside>
+
+    <!-- LISTA EMAIL -->
+    <section class="col-md-4 email-list p-0" id="emailList">
+      <div class="email-item unread" data-title="Avviso Aggiornamento Software" data-from="Bibliowin developers team" data-body="Gentile utente,\n\ si informa che nel giorno 9 luglio 2022 è stato effettuato un aggiornamento generale del software obbligatorio, per implementare nuovi criteri di sicurezza interna, accostato a nuove funzionalità del database. /n/ Saluti, Developer team /n/ Gabriel Jones - Cliente GAJO29/12/2019">
+        <div class="d-flex">
+          <h6>Comune di Roma</h6>
+          <small>09:30</small>
+        </div>
+        <p class="text-truncate">Avviso pagamento TARI</p>
+      </div>
+      <div class="email-item unread" data-title="Comunicazione importante" data-from="INPS" data-body="Si informa la seguente, che, stalin è morto e in inghilterra c'è la regina
+      mi segui caro.">
+        <div class="d-flex">
+          <h6>INPS</h6>
+          <small>08:15</small>
+        </div>
+        <p class="text-truncate">Comunicazione importante</p>
+      </div>
+      <div class="email-item" data-title="Novità del mese" data-from="Newsletter" data-body="Scopri le novità del mese nella nostra newsletter.">
+        <div class="d-flex">
+          <h6>Newsletter</h6>
+          <small>ieri</small>
+        </div>
+        <p class="text-truncate">Novità del mese</p>
+      </div>
+      <div class="email-item" data-title="Aggiornamento dichiarazione" data-from="Agenzia Entrate" data-body="Aggiornamento sulla dichiarazione dei redditi.">
+        <div class="d-flex">
+          <h6>Agenzia Entrate</h6>
+          <small>lun</small>
+        </div>
+        <p class="text-truncate">Aggiornamento dichiarazione</p>
+      </div>
+    </section>
+
+    <!-- PREVIEW EMAIL -->
+    <section class="col-md-6 email-preview" id="emailPreview">
+      <div class="email-preview-header">
+        <div>
+          <h5>Seleziona un'email</h5>
+          <small>Da: -</small>
+        </div>
+        <div>
+          <button class="btn btn-sm btn-outline-primary">↩️ Rispondi</button>
+          <button class="btn btn-sm btn-outline-danger">🗑️ Elimina</button>
+        </div>
+      </div>
+      <div class="email-preview-body">
+        <p>Seleziona un'email dalla lista per visualizzarla qui.</p>
+      </div>
+      <div class="email-preview-footer">
+        <button class="btn btn-primary btn-sm btn-primary-custom">Rispondi</button>
+        <button class="btn btn-outline-danger btn-sm">Elimina</button>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+  const emailItems = document.querySelectorAll('.email-item');
+  const previewHeader = document.querySelector('.email-preview-header div:first-child h5');
+  const previewSub = document.querySelector('.email-preview-header div:first-child small');
+  const previewBody = document.querySelector('.email-preview-body');
+  const searchInput = document.getElementById('searchInput');
+
+  // Funzione click per selezionare email
+  emailItems.forEach(item => {
+    item.addEventListener('click', () => {
+      emailItems.forEach(e => e.classList.remove('selected'));
+      item.classList.add('selected');
+      previewHeader.textContent = item.dataset.title;
+      previewSub.textContent = `Da: ${item.dataset.from}`;
+      previewBody.innerHTML = item.dataset.body.replace(/\n/g, '<br>');
+    });
+  });
+
+  // Funzione ricerca
+  searchInput.addEventListener('input', () => {
+    const filter = searchInput.value.toLowerCase();
+    emailItems.forEach(item => {
+      const title = item.dataset.title.toLowerCase();
+      const from = item.dataset.from.toLowerCase();
+      if (title.includes(filter) || from.includes(filter)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
