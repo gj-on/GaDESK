@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+<div class="email-content">
+  <h2>{{ page.title }}</h2>
+  <p><strong>Da:</strong> {{ page.from }}</p>
+  <div>
+    {{ content | markdownify }}
+  </div>
+</div>
