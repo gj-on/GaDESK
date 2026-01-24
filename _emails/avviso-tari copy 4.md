@@ -2,7 +2,7 @@
 title: Avviso aggiornamento pagamento
 from: Il Team di Developer di Bibliowin
 layout: email
-date: 2019-01-18
+date: 2023-01-18
 ---
 
 Gentile utente,
